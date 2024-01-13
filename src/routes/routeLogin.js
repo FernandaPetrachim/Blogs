@@ -5,6 +5,6 @@ const loginCon = require('../controllers/loginCon');
 
 const routeLogin = express.Router();
 
-routeLogin.post('/', loginMid, loginCon.login);
+routeLogin.post('/login', loginMid, loginCon.login);
 
 module.exports = routeLogin;
