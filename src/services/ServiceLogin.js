@@ -1,4 +1,4 @@
-const generarToken1 = require('../validation/tokenLogin');
+const generateToken1 = require('../validation/tokenLogin');
 const { User } = require('../models');
 
 const loginEmailPassword = async (email, password) => {
@@ -12,9 +12,9 @@ const loginEmailPassword = async (email, password) => {
   }
 
   const { id1 } = user.dataValues;
-  const token2 = generarToken1.generarToken1({ id1 });
+  const token = generateToken1.generateToken1({ id1 });
 
-  return { status: 200, data: { token2 } };
+  return { status: 200, data: { token } };
 };
 
 module.exports = {
