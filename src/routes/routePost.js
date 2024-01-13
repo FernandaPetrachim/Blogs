@@ -1,3 +1,5 @@
+// Resumo: Criando todas as rotas relacionas a o Post para ficar mais tranquilo de encontralas e arrumar os erros.
+
 const express = require('express');
 const autori = require('../middlewares/authMid');
 const postCon = require('../controllers/postCon');

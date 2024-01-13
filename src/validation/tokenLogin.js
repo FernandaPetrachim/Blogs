@@ -1,3 +1,4 @@
+// Resumo: validação do token
 // variavél que pede no readme 
 const jwt = require('jsonwebtoken');
 

@@ -1,4 +1,5 @@
-// Rotas relacionadas ao usuário
+// Resumo: Rotas relacionadas ao usuário, todas juntas para ficar mais tranquilo de enviar para o 
+// app e corrigir os erros futuramente.
 const express = require('express');
 const userCon = require('../controllers/userCon');
 const autori = require('../middlewares/authMid');

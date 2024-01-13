@@ -1,3 +1,6 @@
+// Resumo: criando todas as rotas para categorias em um só lugar, para lidar mais fácil com possivel 
+// erros e ficar mais organziado o código
+
 const express = require('express');
 const autori = require('../middlewares/authMid');
 const CategoryCon = require('../controllers/categoryCon');

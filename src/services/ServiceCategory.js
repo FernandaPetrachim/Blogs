@@ -1,3 +1,9 @@
+// Resumo: Este código é responsável por duas operações relacionadas a categorias 
+// (Category1) no contexto do seu aplicativo Node.js.
+
+// Com essas funções criadas abaixo serão úteis para a gestão de categorias em seu aplicativo, permitindo a criação de novas categorias e a 
+// recuperação de todas as categorias existentes. 
+
 const { Category1 } = require('../models');
 
 const createCategory = async (req, res) => {

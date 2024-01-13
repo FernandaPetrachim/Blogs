@@ -1,3 +1,8 @@
+// Resumo do códiog: a função loginEmailPassword parece tratar a autenticação do usuário, 
+// verificando se as credenciais fornecidas são válidas, gerando um token JWT se forem, e retornando um objeto de 
+// resposta com o status e o token correspondente. 
+// gerei token, busquei no validation
+
 const generateToken1 = require('../validation/tokenLogin');
 const { User } = require('../models');
 

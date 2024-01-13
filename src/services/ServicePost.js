@@ -1,3 +1,7 @@
+// Resumo: Este código representa um conjunto de funções relacionadas a operações CRUD (Create, Read, Update, Delete) em postagens de blog, envolvendo modelos 
+// como BlogPost, Category, PostCategory, e User
+// Essas funções fornecem operações fundamentais para criar, recuperar, e atualizar postagens de blog no contexto do
+// seu aplicativo Node.js
 const { BlogPost, Category, PostCategory, User } = require('../models');
 
 const validateCategory = (categoryIds) => {

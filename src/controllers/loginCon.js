@@ -1,3 +1,7 @@
+// Resumo do código: Este código representa a lógica de um endpoint de login, verificando as credenciais, 
+// retornando as mensagens de erros ou tokens de autenticação,
+// e tratando exceções internas do servidor
+
 const loginService = require('../services/ServiceLogin');
 
 const login = async (req, res) => {
