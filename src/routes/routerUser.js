@@ -11,4 +11,4 @@ routeUser.post('/user', usuario, userCon.createUser);
 
 routeUser.get('/user/:id', autori, userCon.findUserById);
 
-module.export = routeUser;
+module.exports = routeUser;

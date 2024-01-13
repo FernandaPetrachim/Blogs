@@ -13,3 +13,5 @@ routePost.get('/post/search', autori, postCon.createPost);
 routePost.get('/post/:id', autori, postCon.findPostById);
 routePost.put('/post/:id', autori, onepostMid, postCon.updatePost);
 routePost.delete('/post/:id', autori, postCon.deletePost);
+
+module.exports = routePost;
