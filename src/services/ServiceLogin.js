@@ -1,4 +1,4 @@
-const generarToken1 = require('../tokenLogin');
+const generarToken1 = require('../validation/tokenLogin');
 const { User } = require('../models');
 
 const loginEmailPassword = async (email, password) => {

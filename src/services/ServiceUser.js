@@ -1,5 +1,5 @@
 const UserTable = require('../models/User');
-const generateToken1 = require('../tokenLogin');
+const generateToken1 = require('../validation/tokenLogin');
 
 // Objetivo: Recuperar todos os registros da tabela de usuários.
 const findAll = async () => {
