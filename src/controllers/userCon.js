@@ -1,10 +1,8 @@
 const ServiceUser = require('../services/ServiceUser');
 
-const createUser = async (req, res) => {
+const createUsuario = async (req, res) => {
   const { displayName, email, password, image } = req.body;
-  const { status, data } = await ServiceUser
-    
-    .createUser({ displayName, email, password, image });
+  const { status, data } = await ServiceUser.createUsuario({ displayName, email, password, image });
 
   return res.status(status).json(data);
 };
@@ -15,9 +13,9 @@ const getAllUsers = async (_req, res) => {
   return res.status(status).json(data);
 };
 
-const findUserById = async (req, res) => {
+const findById = async (req, res) => {
   const { id } = req.params;
-  const { status, data } = await ServiceUser.findUserById(id);
+  const { status, data } = await ServiceUser.findById(id);
 
   return res.status(status).json(data);
 };
@@ -30,8 +28,8 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = {
-  createUser,
+  createUsuario,
   getAllUsers,
-  findUserById,
+  findById,
   deleteUser,
 };

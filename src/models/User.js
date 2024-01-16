@@ -8,8 +8,13 @@ const UserTable = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       displayName: DataTypes.STRING,
+    }, 
+    {
       email: DataTypes.STRING,
+    },
+    {
       password: DataTypes.STRING,
+    }, {
       image: DataTypes.STRING,
     },
     {

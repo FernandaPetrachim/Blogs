@@ -8,8 +8,8 @@ const usuario = require('../middlewares/userMid');
 const routeUser = express.Router();
 
 routeUser.get('/user', autori, userCon.getAllUsers);
-routeUser.post('/user', usuario, userCon.createUser);
+routeUser.post('/user', usuario, userCon.createUsuario);
 
-routeUser.get('/user/:id', autori, userCon.findUserById);
+routeUser.get('/user/:id', autori, userCon.findById);
 
 module.exports = routeUser;
