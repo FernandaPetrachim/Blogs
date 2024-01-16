@@ -23,12 +23,10 @@ const findById = async (id) => {
   return { status: 200, data: user };
 };
 // Objetivo: Excluir um usuário da tabela com base no seu identificador único.
-const excluir = async (id2) => {
-  await User.destroy({ where: { id2 } });
-
+const excluir = async (id) => {
+  await User.destroy({ where: { id } });
   return { status: 204, data: {} };
 };
-
 // Objetivo: Criar um novo usuário no banco de dados.
 const createUsuario = async ({ displayName, email, password, image }) => {
   const getByEmail = await User.findOne({
