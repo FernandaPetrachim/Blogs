@@ -5,13 +5,13 @@
 const Category1 = (sequelize, DataTypes) => {
     const CategorieModel = sequelize.define('Category', {
       id: {
-          type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
       },
       name: DataTypes.STRING,
     },
     {
-        tableName: 'categories',
+      tableName: 'categories',
     });
     return CategorieModel;
   };

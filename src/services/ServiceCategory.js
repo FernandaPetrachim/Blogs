@@ -6,14 +6,9 @@
 
 const { Category1 } = require('../models');
 
-const createCategory = async (req, res) => {
-  const { name } = req.body;
-  try {
-    const category = await Category1.create({ name });
-    return res.status(201).json({ data: category });
-  } catch (error) {
-    return res.status(400).json({ message: 'Failed to create category' });
-  }
+const createCategories = async (name) => {
+  const categories = await Category1({ name });
+  return { status: 201, data: categories };
 };
 
 const getAllCategories = async (_req, res) => {
@@ -26,6 +21,6 @@ const getAllCategories = async (_req, res) => {
 };
 
 module.exports = {
-  createCategory,
+  createCategories,
   getAllCategories,
 };
