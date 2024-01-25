@@ -6,17 +6,15 @@ const { JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
 
 const autori = (req, res, next) => {
-  const { autorizacao } = req.headers;
-
+  const { authorization } = req.headers; // authorization está no teste e lá está com letra Maiuscula
   function extracaoToken(bearerToken) {
     return bearerToken.split(' ')[1];
   }
 
-  if (!autorizacao || autorizacao === '') {
+  if (!authorization || authorization === '') {
     return res.status(401).json({ message: 'Token not found' });
   }
-
-  const token = extracaoToken(autorizacao);
+  const token = extracaoToken(authorization);
 
   try {
     const converter = jwt.verify(token, JWT_SECRET);
