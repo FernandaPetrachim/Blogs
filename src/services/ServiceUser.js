@@ -49,8 +49,8 @@ const createUsuario = async ({ displayName, email, password, image }) => {
   // Extração do ID do Usuário 
   const { id } = userUsuario.dataValues;
   // Geração do Token de Autenticação
-  const token3 = generateToken1.generateToken1({ id });
-  return { status: 201, data: { token3 } };
+  const token = generateToken1.generateToken1({ id });
+  return { status: 201, data: { token } };
 };
 
 module.exports = {
