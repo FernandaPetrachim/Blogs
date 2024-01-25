@@ -43,6 +43,7 @@ const createUsuario = async ({ displayName, email, password, image }) => {
   if (regex.test(email) === false) {
     return { status: 400, data: { message: '"email" must be a valid email' } };
   }
+  
   // Criação do Usuário 
   const userUsuario = await User.create({ displayName, email, password, image });
   // Extração do ID do Usuário 
