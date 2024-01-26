@@ -4,16 +4,16 @@
 // Com essas funções criadas abaixo serão úteis para a gestão de categorias em seu aplicativo, permitindo a criação de novas categorias e a 
 // recuperação de todas as categorias existentes. 
 
-const { Category1 } = require('../models');
+const { Category } = require('../models');
 
 const createCategories = async (name) => {
-  const categories = await Category1({ name });
+  const categories = await Category({ name });
   return { status: 201, data: categories };
 };
 
 const getAllCategories = async (_req, res) => {
   try {
-    const categories = await Category1.findAll();
+    const categories = await Category.findAll();
     return res.status(200).json({ data: categories });
   } catch (error) {
     return res.status(500).json({ message: 'Internal server error' });
