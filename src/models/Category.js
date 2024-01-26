@@ -7,11 +7,13 @@ const Category1 = (sequelize, DataTypes) => {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
       },
       name: DataTypes.STRING,
     },
     {
       tableName: 'categories',
+        timestamps: false,
     });
     return CategorieModel;
   };
