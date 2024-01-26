@@ -4,28 +4,29 @@
 // seu aplicativo Node.js
 const { BlogPost, Category, PostCategory, User } = require('../models');
 
-const validateCategory = (categoryIds) => {
-  const valid = categoryIds.every((categoryId) =>
+const validateCategory = async (categoryIds) => {
+  const arrayPromise = categoryIds.map((categoryId) =>
     Category.findByPk(categoryId));
-  return valid;
+  const result = await Promise.all(arrayPromise);
+  console.log('arrayPromise', arrayPromise);
+  console.log('result', result);
+  
+  return arrayPromise;
 };
 
-const create = async (newPost, id) => {
-  try {
-    const { title, content, categoryIds } = newPost;
-    const newPost1 = { title, content, userId: id, published: new Date(), updated: new Date() };
-    validateCategory(categoryIds);
+const createPost = async (newPost, id) => {
+  const { title, content, categoryIds } = newPost;
+  const newPost1 = { title, content, userId: id, published: new Date(), updated: new Date() };
+  const xablau = await validateCategory(categoryIds);
+  console.log('oiiiiiiiiiiiiiiiiiiiiiiiiii', xablau);
 
-    const post = await BlogPost.create(newPost1);
-    const postId = post.id;
+  const post = await BlogPost.create(newPost1);
+  const postId = post.id;
 
-    const promises = categoryIds.map((categoryId) =>
-      PostCategory.create({ postId, categoryId }));
-    await Promise.all(promises);
-    return { status: 201, data: post };
-  } catch (error) {
-    return { status: 400, data: { message: 'one or more "categoryIds" not found' } };
-  }
+  const promises = categoryIds.map((categoryId) =>
+    PostCategory.create({ postId, categoryId }));
+  await Promise.all(promises);
+  return { status: 201, data: post };
 };
 
 const findAll = async () => {
@@ -57,7 +58,7 @@ const update = async (id, title, content, userId) => {
   return newPost;
 };
 module.exports = {
-  create,
+  createPost,
   findAll,
   findById,
   update,
