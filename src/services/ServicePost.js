@@ -2,23 +2,27 @@
 // como BlogPost, Category, PostCategory, e User
 // Essas funções fornecem operações fundamentais para criar, recuperar, e atualizar postagens de blog no contexto do
 // seu aplicativo Node.js
+// Para utilizar o método .every(), é necessário fornecer uma função de callback que será
+// executada para cada elemento do array. Essa função deve retornar true ou false, indicando 
+// se o elemento satisfaz ou não a condição estabelecida. O método .every() irá percorrer todos 
+// os elementos do array até encontrar um que não satisfaça a condição, interrompendo a execução e retornando false.
+// Caso todos os elementos satisfaçam a condição, o método irá retornar true.
+ 
 const { BlogPost, Category, PostCategory, User } = require('../models');
 
 const validateCategory = async (categoryIds) => {
-  const arrayPromise = categoryIds.map((categoryId) =>
+  const arrayPromise = categoryIds.every((categoryId) =>
     Category.findByPk(categoryId));
   const result = await Promise.all(arrayPromise);
   console.log('arrayPromise', arrayPromise);
   console.log('result', result);
   
-  return arrayPromise;
+  return result;
 };
 
 const createPost = async (newPost, id) => {
   const { title, content, categoryIds } = newPost;
   const newPost1 = { title, content, userId: id, published: new Date(), updated: new Date() };
-  const xablau = await validateCategory(categoryIds);
-  console.log('oiiiiiiiiiiiiiiiiiiiiiiiiii', xablau);
 
   const post = await BlogPost.create(newPost1);
   const postId = post.id;
@@ -38,7 +42,6 @@ const findAll = async () => {
   });
   return { status: 200, data: posts };
 };
-
 const findById = async (id) => {
   const post = await BlogPost.findByPk(id, {
     include: [
@@ -62,4 +65,5 @@ module.exports = {
   findAll,
   findById,
   update,
+  validateCategory,
 };
