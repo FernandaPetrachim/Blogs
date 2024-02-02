@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 const autori = (req, res, next) => {
   const { authorization } = req.headers; // authorization está no teste e lá está com letra Maiuscula
   function extracaoToken(bearerToken) {
-    return bearerToken.split(' ')[1];
+    return bearerToken.split(' ')[1]; // split dividir
   }
 
   if (!authorization || authorization === '') {

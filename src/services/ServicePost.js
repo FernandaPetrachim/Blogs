@@ -11,6 +11,7 @@
 const { BlogPost, Category, PostCategory, User } = require('../models');
 
 const validateCategory = async (categoryIds) => {
+/*   try { */
   const arrayPromise = categoryIds.every((categoryId) =>
     Category.findByPk(categoryId));
   const result = await Promise.all(arrayPromise);
@@ -18,19 +19,34 @@ const validateCategory = async (categoryIds) => {
   console.log('result', result);
   
   return result;
+  /*  } catch (error) {
+    console.error('Erro ao validar categorias:', error);
+    throw error;  */
 };
+/* }; */
 
 const createPost = async (newPost, id) => {
+/*   try { */
   const { title, content, categoryIds } = newPost;
   const newPost1 = { title, content, userId: id, published: new Date(), updated: new Date() };
-
-  const post = await BlogPost.create(newPost1);
-  const postId = post.id;
-
-  const promises = categoryIds.map((categoryId) =>
-    PostCategory.create({ postId, categoryId }));
-  await Promise.all(promises);
-  return { status: 201, data: post };
+  const categoriaverificar = categoryIds.map(async (element) => {
+    const procurarCategoria = await Category.findByPk(element); // findByPk-chave primária
+    if (!procurarCategoria) {
+      return null;
+    }
+    return true;
+  });
+  if (categoriaverificar.some(null)) {
+    return { status: 400, data: { message: 'one or more "categoryIds" not found' } };
+  }
+  
+  /* const post = await BlogPost.create(newPost1); */
+  /*     const postId = post.id; */
+  /*  await Promise.all(categoryIds.map((categoryId) => PostCategory.create({ postId, categoryId })));  */
+  return { status: 201, data: 'post' };
+  /* } catch (error) {
+    return { status: 400, data: { message: 'one or more "categoryIds" not found' } };
+  } */
 };
 
 const findAll = async () => {
@@ -52,7 +68,6 @@ const findById = async (id) => {
   if (!post) return { status: 404, data: { message: 'Post does not exist' } };
   return { status: 200, data: post };
 };
-
 const update = async (id, title, content, userId) => {
   const { data } = await findById(id);
   if (data.userId !== userId) return { status: 401, data: { message: 'Unauthorized user' } };
