@@ -2,13 +2,6 @@
 // como BlogPost, Category, PostCategory, e User
 const { BlogPost, Category, PostCategory, User } = require('../models');
 
-const validateCategory = async (categoryIds) => {
-  const arrayPromise = categoryIds.every((categoryId) =>
-    Category.findByPk(categoryId));
-  const result = await Promise.all(arrayPromise);
-
-  return result;
-};
 const createPost = async (newPost, id) => {
   const { title, content, categoryIds } = newPost;
   const newPost1 = { title, content, userId: id, published: new Date(), updated: new Date() };
@@ -52,5 +45,5 @@ const update = async (id, title, content, userId) => {
 };
 
 module.exports = {
-  createPost, findAll, findById, validateCategory, update,
+  createPost, findAll, findById, update,
 };
