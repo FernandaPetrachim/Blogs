@@ -10,14 +10,14 @@ const createPost = async (req, res) => {
 };
 
 const getAllPosts = async (_req, res) => {
-  const { status, data } = await postService.getAllPosts();
+  const { status, data } = await postService.findAll();
 
   return res.status(status).json(data);
 };
 
 const findPostById = async (req, res) => {
   const { id } = req.params;
-  const { status, data } = await postService.findPostById(id);
+  const { status, data } = await postService.findById(id);
 
   return res.status(status).json(data);
 };
