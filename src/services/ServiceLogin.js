@@ -16,8 +16,8 @@ const loginEmailPassword = async (email, password) => {
     return { status: 400, data: { message: 'Invalid fields' } };
   }
 
-  const { id1 } = user.dataValues;
-  const token = generateToken1.generateToken1({ id1 });
+  const { id } = user.dataValues;
+  const token = generateToken1.generateToken1({ id });
 
   return { status: 200, data: { token } };
 };

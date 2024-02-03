@@ -3,6 +3,7 @@ const postService = require('../services/ServicePost');
 const createPost = async (req, res) => {
   const newPost = req.body;
   const { id } = req.user;
+  console.log(req.user);
   const { status, data } = await postService.createPost(newPost, id);
 
   return res.status(status).json(data);

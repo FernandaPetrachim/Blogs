@@ -11,6 +11,7 @@ const validateCategory = async (categoryIds) => {
 };
 const createPost = async (newPost, id) => {
   /* try { */
+  console.log(id);
   const { title, content, categoryIds } = newPost;
   const newPost1 = { title, content, userId: id, published: new Date(), updated: new Date() };
   const post = await BlogPost.create(newPost1); 
@@ -21,10 +22,9 @@ const createPost = async (newPost, id) => {
   if (categoriaverificar.some((result) => !result)) {
     return { status: 400, data: { message: 'one or more "categoryIds" not found' } };
   }
-  return { status: 201, data: 'post' };
-  /*  } catch (error) {
-    return { status: 400, data: { message: 'oiii' } };
-  } */
+  const array = categoryIds.map((element) => ({ postId: post.dataValues.id, categoryId: element }));
+  await PostCategory.bulkCreate(array); // insere varios elementos no banco 
+  return { status: 201, data: post };
 };
 const findAll = async () => {
   const posts = await BlogPost.findAll({
