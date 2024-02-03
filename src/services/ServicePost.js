@@ -10,8 +10,6 @@ const validateCategory = async (categoryIds) => {
   return result;
 };
 const createPost = async (newPost, id) => {
-  /* try { */
-  console.log(id);
   const { title, content, categoryIds } = newPost;
   const newPost1 = { title, content, userId: id, published: new Date(), updated: new Date() };
   const post = await BlogPost.create(newPost1); 
