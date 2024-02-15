@@ -1,5 +1,5 @@
 # :construction: README em construção ! :construction:
-log API
+Blog API
 Esta é uma API simples para gerenciar usuários, categorias e postagens de blog.
 
 Tecnologias utilizadas:
