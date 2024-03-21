@@ -14,14 +14,10 @@
   <li>Docker</li>
   <li>MySql</li>
   <li>Joi</li>
-  <li>.Env</li>
-  <li>Express Recuse</li>
-  <li>Json web Tokens</li>
   <li>Node.js</li>
   <li>Sequelize.js</li>
   <li>Json Web Tokens</li>
-  <li>DotEnv</li>
-  <li>Mysql</li>
+
 </ul>
 
 
@@ -55,7 +51,7 @@
 <p>E-mail: fernanda_petrachim@hotmail.com</p>
 
 <h2><strong>Contribuição</strong></h2>
-<p>Este projeto foi desenvolvido durante meu curso na Trybe com base no projeto 'Store Manager'. A Trybe é uma escola de programação que tem compromisso com o sucesso profissional. O projeto 'Store Manager' faz parte do módulo de Back-End e envolve a criação de uma API com Express, Node, Docker e MySQL.</p>
+<p>Este projeto foi desenvolvido durante meu curso na Trybe com base no projeto 'Blogs Api. A Trybe é uma escola de programação que tem compromisso com o sucesso profissional. O projeto 'Blogs Api' faz parte do módulo de Back-End e envolve a criação de uma API com Express, Node, Docker e MySQL.</p>
 
 <h2><strong>Licença</strong></h2>
 <p>Código Aberto (código aberto)</p>
